@@ -5,19 +5,19 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class p8 {
-    
-    public static int diagonalDifference(List<List<Integer>> arr) {
-        Scanner scanned = new Scanner(System.in);
-        int n = Integer.parseInt(scanned.nextLine());
+public class p8revised {
+    public static int diagonalDifference(List<List<Integer>> arr, int num) {
+        
         int total = 0;
         int sum1 = 0;
         int sum2 = 0;
-        for(int i = 0; i < n; i++){
-            String str[] = scanned.nextLine().split(" ");
-            sum1 = sum1 + Integer.parseInt(str[i]);
+        String [] sArray = new String [num];
+        for(int i = 0; i < num; i++){
+            int [] iArray = arr.get(i).stream().mapToInt(a->a).toArray();
+            sArray = Arrays.stream(iArray).mapToObj(String::valueOf).toArray(String[]::new);
+            sum1 = sum1 + Integer.parseInt(sArray[i]);
             
-            sum2 = sum2 + Integer.parseInt(str[n-1-i]);
+            sum2 = sum2 + Integer.parseInt(sArray[num-1-i]);
         }
 
         
@@ -29,13 +29,13 @@ public class p8 {
 
 
     public static void main(String[] args) {
-
+        int num = 3;
         List<List<Integer>> arr = new ArrayList<>();
         arr.add(new ArrayList<>(Arrays.asList(11, 2, 4)));
         arr.add(new ArrayList<>(Arrays.asList(4, 5, 6)));
         arr.add(new ArrayList<>(Arrays.asList(10, 8, -12)));
         
-        System.out.println(diagonalDifference(arr));
+        System.out.println(diagonalDifference(arr, num));
        
 
 
