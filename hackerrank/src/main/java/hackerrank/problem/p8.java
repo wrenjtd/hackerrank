@@ -9,7 +9,9 @@ public class p8 {
     
     public static int diagonalDifference(List<List<Integer>> arr) {
         Scanner scanned = new Scanner(System.in);
-        int n = Integer.parseInt(scanned.nextLine());
+        int n;
+        n = Integer.parseInt(scanned.nextLine());
+        
         int total = 0;
         int sum1 = 0;
         int sum2 = 0;
